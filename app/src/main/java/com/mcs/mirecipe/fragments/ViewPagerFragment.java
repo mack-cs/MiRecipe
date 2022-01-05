@@ -25,14 +25,15 @@ public class ViewPagerFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         int index = getArguments().getInt(KEY_RECIPE_INDEX);
         getActivity().setTitle(Recipes.names[index]);
+        getActivity().setTitleColor(R.color.white);
         binding = FragmentViewpagerBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        CheckBoxesFragment ingredientsFragment = new IngredientFragment();
+        IngredientFragment ingredientsFragment = new IngredientFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(KEY_RECIPE_INDEX,index);
         ingredientsFragment.setArguments(bundle);
-        CheckBoxesFragment directionsFragment = new DirectionsFragment();
+        DirectionsFragment directionsFragment = new DirectionsFragment();
         bundle = new Bundle();
         bundle.putInt(KEY_RECIPE_INDEX,index);
         directionsFragment.setArguments(bundle);
@@ -51,7 +52,7 @@ public class ViewPagerFragment extends Fragment {
         });
 
         TabLayout tabLayout = binding.tabLayout;
-        String[] titles = {"Ingredients", "Directions"};
+        String[] titles = {getString(R.string.title_ingredients), getString(R.string.title_directions)};
         new TabLayoutMediator(tabLayout,viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {

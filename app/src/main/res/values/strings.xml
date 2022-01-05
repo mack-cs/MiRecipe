@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">MiRecipe</string>
+    <string name="app_name"><font color="#ffffff">MiRecipe</font></string>
+    <string name="title_ingredients"><font color="#ffffff">Ingredients</font></string>
+    <string name="title_directions"><font color="#ffffff">Directions</font></string>
 </resources>
